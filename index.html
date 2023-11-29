@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    script src="./scripts/conteudo.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script  src="./scripts/main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/section.css">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    <script src="./scripts/main.js" defer></script>
     <title>Lepa Flix</title>
 </head>
-<body>
-    <header>    
+<body onclick="closeResultContainer()">
+    <header> 
         <nav class="nav__bar"> 
             <div class="nav__links">
                 <h1>LePaFLIX</h1>
@@ -22,11 +26,8 @@
                     <li class="nav__link">
                         <a href="#">Inicio</a>
                     </li>
-                    <li class="nav__link">
-                        <a href="#">Lançamentos</a>
-                    </li>
                     <li class="nav__link category">
-                        <div class="category__text">
+                        <div class="category__text" onclick="openCategory()">
                             <p>Categorias</p> <img src="./assets/icons/seta-baixo.png" alt="">
                         </div>
                         <ul class="category__container">
@@ -37,50 +38,84 @@
                             </li>
                             <li class="category__item">
                                 <a href="">Documentário</a >
-                                <a href="">Drama</a>
-                                <a href="">Fantasia</a >
-                            </li>
-
-                            <li class="category__item">
-                                <a href="">Terror</a>
-                                <a href="">Infantis</a>
-                                <a href="">Suspence e mistério</a >
-                            </li>
-
-                            <li class="category__item">
-
-                                <a href="">Romance</a>
-                                <a href="">Ficção científica</a>
-                            </li>
+                                    <a href="">Drama</a>
+                                    <a href="">Fantasia</a >
+                                    </li>
+                                    
+                                    <li class="category__item">
+                                        <a href="">Terror</a>
+                                        <a href="">Infantis</a>
+                                        <a href="">Suspence e mistério</a >
+                                        </li>
+                                        
+                                        <li class="category__item">
+                                            
+                                            <a href="">Romance</a>
+                                            <a href="">Ficção científica</a>
+                                        </li>
                         </ul>
                     </li>
                 </ul>
             </div>
-            <ul class="nav__links">
-                <li class="nav__link search__bar">
-                    <div>
-                        <img class="icons" src="./assets/icons/icon-lupa.png" alt="Lupa  ">
-                    </div>
-                    <input name="search" type="text">
-                </li>
-                <li class="nav__link">
-                    <a href="#">teste</a>
-                </li>
-                <li class="nav__link">
-                    <img class="icons" src="./assets/icons/icon-usuario.png" alt="avatar">
-                </li>
-            </ul>
+            <div class="nav__link search__bar">
+                <div>
+                    <img class="search__icon" src="./assets/icons/icon-lupa.png" alt="Lupa  ">
+                    <ul class="result__container"></ul>
+                </div>
+                <input id="serch__input" name="search" type="text">
+            </div>
         </nav>
-        <div id="hero">
-                <ul class="caroussel__highlights">
-                </ul>
+        <div class="carrousel">
+            <ul class="caroussel__highlights">
+            </ul>
         </div>
         <ul id="conteudo">
-            
         </ul>
-        <div class="modal">
+        <div onclick="closeModal()" class="modal">
         </div>
-        </div>
+    </div>
     </header>
-</body>
-</html>
+    <section class="list__content">
+            <h2>Series em destaque</h2>
+            <div class="destaqued__area">
+                <div class="movieRow--left">
+                    <img  class="movieRowLeft__icon" src="./assets/icons/seta-esquerda.png" alt="L">
+                </div>
+                <div class="movieRow--right">
+                    <img class="movieRowRight__icon" src="./assets/icons/seta-direita.png" alt="R">
+                </div>
+                <ul class="destaqued__series__list listMargin">
+                    
+                </ul>
+            </div>
+        </section>
+        <section class="list__content">
+            <h2>Filmes em destaque</h2>
+            <div class="destaqued__area">
+                <div class="movieRow--left">
+                    <img class="movieRowLeft__icon" src="./assets/icons/seta-esquerda.png" alt="L">
+                </div>
+                <div class="movieRow--right">
+                    <img class="movieRowRight__icon" src="./assets/icons/seta-direita.png" alt="R">
+                </div>
+                <ul class="destaqued__films__list listMargin">
+                    
+                </ul>
+            </div>
+        </section>
+        <section class="list__content">
+            <h2>Animes em destaque</h2>
+            <div class="destaqued__area">
+                <div class="movieRow--left">
+                    <img class="movieRowLeft__icon" src="./assets/icons/seta-esquerda.png" alt="L">
+                </div>
+                <div class="movieRow--right">
+                    <img class="movieRowRight__icon" src="./assets/icons/seta-direita.png" alt="R">
+                </div>
+                <ul class="destaqued__animes__list listMargin">
+                    
+                </ul>
+            </div>
+    </body>
+    </html>
+    

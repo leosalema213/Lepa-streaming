@@ -1,0 +1,108 @@
+.list__content {
+    background-color: #202020;
+    color: #fff;
+    padding: 30px;
+}
+
+.list__content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.destaqued__area {
+    overflow-x: hidden;
+}
+
+.destaqued__series__list,
+.destaqued__films__list,
+.destaqued__animes__list {
+    width: 9999999px;
+    transition: all ease ;
+}
+
+.destaqued__item {
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    cursor: pointer;
+}
+.destaqued__item img {
+    width: 100%;
+    height: 180px;
+    transform: scale(0.9);
+    transition: all ease .4s;
+    object-fit: cover;
+}
+.destaqued__item img:hover {
+    transform: scale(1);
+}
+.movieRow--left,
+.movieRow--right{
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    width: 40px;
+    height: 180px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+.movieRow--left {
+    left: 30px;
+}
+.movieRow--right {
+    right: 30px;
+}
+
+.destaqued__area:hover .movieRow--right,
+.destaqued__area:hover .movieRow--left{
+    opacity: 1;
+}
+
+.listMargin {
+    margin-left: -200px;
+}
+.movieRowLeft__icon {
+    z-index: 1;
+}
+
+@media screen and (max-width: 480px) {   
+    .destaqued__area {
+        position: relative;
+    }
+    .movieRow--left,
+    .movieRow--right{
+    height: 166px;
+    opacity: 1;
+    }
+    .movieRow--left {
+        left: 0px;
+        top: 8px;
+    }
+    .movieRow--right {
+        right: 0px;
+        top: 8px;
+    }
+}
+
+@media screen and (min-width: 481px) and ((max-width: 769px)) {
+    .destaqued__area {
+        position: relative;
+    }
+    .movieRow--left,
+    .movieRow--right{
+    height: 166px;
+    opacity: 1;
+    }
+    .movieRow--left {
+        left: 0px;
+        top: 8px;
+    }
+    .movieRow--right {
+        right: 0px;
+        top: 8px;
+    }
+}
