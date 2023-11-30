@@ -17,7 +17,7 @@
     <script src="./scripts/main.js" defer></script>
     <title>Lepa Flix</title>
 </head>
-<body onclick="closeResultContainer()">
+<body>
     <header> 
         <nav class="nav__bar"> 
             <div class="nav__links">
@@ -58,11 +58,12 @@
                 </ul>
             </div>
             <div class="nav__link search__bar">
+                <input id="serch__input" name="search" type="text">
                 <div>
                     <img class="search__icon" src="./assets/icons/icon-lupa.png" alt="Lupa  ">
+                    <img  class="search__icon--close" src="./assets/icons/icons-excluir.png" alt="Lupa  ">
                     <ul class="result__container"></ul>
                 </div>
-                <input id="serch__input" name="search" type="text">
             </div>
         </nav>
         <div class="carrousel">

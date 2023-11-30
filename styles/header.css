@@ -81,10 +81,11 @@ header {
     height: 32px;
     position: relative;
 }
-.search__bar img {
-    width: 100%;
-    height: 100%;
+
+.search__bar div{ 
+    display: flex;
 }
+
 input{
     width: 100%;
     background-color: #0000007a;
@@ -93,9 +94,15 @@ input{
     color: #fff;
 }
 .search__bar img {
+    width: 100%;
+    height: 100%;
     background-color: #0000007a;
     border: 1px solid #fff;
     color: #fff;
+    cursor: pointer;
+}
+.search__icon--close {
+    display: none;
 }
 .result__container {
     position: absolute;

@@ -1,6 +1,7 @@
 const categoryContainer = document.querySelector('.category__container')
 const categorybutton = document.querySelector('.category__text')
 const searchInput = document.querySelector('#serch__input')
+const btnCloseResult = document.querySelector('.search__icon--close')
 
 const containerConteudo = document.querySelector('.caroussel__highlights')
 const carrousselContainer = document.querySelector('.carrousel')
@@ -78,6 +79,7 @@ const openCategory= () => {
 //evento da searchbar, é responsavel por procurar e exibir o conteudo digitado
 searchInput.addEventListener('change', async() => {
     const resultContainer = document.querySelector('.result__container')
+    
     const valorDigitado = searchInput.value.toLowerCase()
     const dados = await fetchApi(allUrl)
     resultContainer.style.display = 'block'
@@ -95,6 +97,9 @@ searchInput.addEventListener('change', async() => {
         `
     } else {
         result.map((item) => {
+            btnCloseResult.addEventListener('click', closeResultContainer)
+            btnCloseResult.style.display = 'block'
+
             return resultContainer.innerHTML += `
             <li onClick="createModal('${item.id}|${allUrl}')" class="result__item">
                 <img src="${item.card}" alt="">
@@ -110,6 +115,8 @@ searchInput.addEventListener('change', async() => {
 })
 
 
+
+
 const filterResult = (dados, val) => {
     let resultado = dados.filter((item) => item.nome.toLowerCase().includes(val))
     return resultado
@@ -121,6 +128,7 @@ function closeResultContainer() {
     searchInput.value = ''
     resultContainer.style.display = 'none'
     resultContainer.innerHTML = ''
+    btnCloseResult.style.display = 'none'
 }
 
 //evento responsavel por ativar o botao p/passar o conteudo nas listas
