@@ -11,9 +11,11 @@ const filmesList = document.querySelector('.destaqued__films__list')
 const animesList = document.querySelector('.destaqued__animes__list')
 
 
-const seriesUrl = 'http://localhost:3000/series'
-const filmesUrl = 'http://localhost:3000/filmes'
-const animesUrl = 'http://localhost:3000/animes'
+const seriesUrl = 'https://streaming-json.vercel.app/series'
+const filmsUrl = 'https://streaming-json.vercel.app/filmes'
+const animesUrl = 'https://streaming-json.vercel.app/animes'
+const highlightsUrl = 'https://streaming-json.vercel.app/destaques'
+const allUrl = 'https://streaming-json.vercel.app/todos'
 
 const btnListRight = document.querySelectorAll('.movieRow--right')
 const btnListLeft = document.querySelectorAll('.movieRow--left')
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     await createCarousel()
     sliderCarousel()
     defineListas(seriesUrl,seriesList)
-    defineListas(filmesUrl,filmesList)
+    defineListas(filmsUrl,filmesList)
     defineListas(animesUrl,animesList)
 })
 
@@ -36,14 +38,14 @@ const fetchApi = async (url) => {
 
 //funcão que retorna o carousel
 const createCarousel = async() => {
-    const dados = await fetchApi('http://localhost:3000/destaques')
+    const dados = await fetchApi(highlightsUrl)
     dados.map((item) => {
         containerConteudo.innerHTML += `
         <li key="${item.nome}" class="caroussel__item ${item.id === '1' ? 'active' : ''}"> 
             <img src="${item.banner}" />
             <h2> ${item.nome} </h2>
             <div>
-                <a class="btn__modal" onClick="createModal('${item.id}|http://localhost:3000/destaques')" href="#">Saiba mais</a>
+                <a class="btn__modal" onClick="createModal('${item.id}|${highlightsUrl}')" href="#">Saiba mais</a>
                 <a href="#">Assista</a>
             <div/>
         </li>
@@ -77,7 +79,7 @@ const openCategory= () => {
 searchInput.addEventListener('change', async() => {
     const resultContainer = document.querySelector('.result__container')
     const valorDigitado = searchInput.value.toLowerCase()
-    const dados = await fetchApi('http://localhost:3000/todos')
+    const dados = await fetchApi(allUrl)
     resultContainer.style.display = 'block'
     let result = filterResult(dados, valorDigitado)
 
@@ -94,7 +96,7 @@ searchInput.addEventListener('change', async() => {
     } else {
         result.map((item) => {
             return resultContainer.innerHTML += `
-            <li onClick="createModal('${item.id}|http://localhost:3000/todos')" class="result__item">
+            <li onClick="createModal('${item.id}|${allUrl}')" class="result__item">
                 <img src="${item.card}" alt="">
                 <p>${item.nome}</p>
             </li>
