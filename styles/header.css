@@ -180,6 +180,7 @@ input{
 }
 .caroussel__item.active {
     display: block;
+    transition: all ease 4s;
 }
 
 @media screen and (max-width: 480px) {    
@@ -196,7 +197,6 @@ input{
         background-color: #0000007a;
         display: none;
         max-height: 500px;
-        
     }
     .caroussel__item img {
         object-position: start;

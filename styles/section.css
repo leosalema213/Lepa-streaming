@@ -106,3 +106,10 @@
         top: 8px;
     }
 }
+
+@media screen and (min-width: 770px) and (max-width: 1024px) {
+    .movieRow--left,
+    .movieRow--right{
+    opacity: 1;
+    }
+}

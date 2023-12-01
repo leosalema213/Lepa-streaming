@@ -72,6 +72,8 @@ const sliderCarousel = () => {
     setInterval(slider, 5000)
 }
 
+
+
 const openCategory= () => {
     categoryContainer.classList.toggle('open__category')
 }
@@ -90,15 +92,16 @@ searchInput.addEventListener('change', async() => {
 
     if(!searchInput.value == '') {
         if(result.length == 0) {
-            resultContainer.innerHTML = `
+            closeResult()
+
+            return resultContainer.innerHTML = `
             <li  class="result__item">
             <p>resultado não encontrado.</p>
             </li>
         `
         } else {
             result.map((item) => {
-                btnCloseResult.addEventListener('click', closeResultContainer)
-                btnCloseResult.style.display = 'block'
+                closeResult()
 
                 return resultContainer.innerHTML += `
                 <li onClick="createModal('${item.id}|${allUrl}')" class="result__item">
@@ -115,6 +118,10 @@ searchInput.addEventListener('change', async() => {
 })
 
 
+const closeResult = () => {
+        btnCloseResult.addEventListener('click', closeResultContainer);
+        btnCloseResult.style.display = 'block'
+}
 
 
 const filterResult = (dados, val) => {
