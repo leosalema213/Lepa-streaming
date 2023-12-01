@@ -95,19 +95,19 @@ searchInput.addEventListener('change', async() => {
             <p>resultado não encontrado.</p>
             </li>
         `
-    } else {
-        result.map((item) => {
-            btnCloseResult.addEventListener('click', closeResultContainer)
-            btnCloseResult.style.display = 'block'
+        } else {
+            result.map((item) => {
+                btnCloseResult.addEventListener('click', closeResultContainer)
+                btnCloseResult.style.display = 'block'
 
-            return resultContainer.innerHTML += `
-            <li onClick="createModal('${item.id}|${allUrl}')" class="result__item">
-                <img src="${item.card}" alt="">
-                <p>${item.nome}</p>
-            </li>
-            `
-        })
-    }
+                return resultContainer.innerHTML += `
+                <li onClick="createModal('${item.id}|${allUrl}')" class="result__item">
+                    <img src="${item.card}" alt="">
+                    <p>${item.nome}</p>
+                </li>
+                `
+            })
+        }
     } else {
         resultContainer.innerHTML = ''
         resultContainer.style.display = 'none'
